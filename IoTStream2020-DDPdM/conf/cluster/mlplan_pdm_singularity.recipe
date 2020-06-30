@@ -1,0 +1,23 @@
+Bootstrap: docker
+From: ubuntu:18.04
+
+%post
+   echo "Installing the singularity container"
+   apt update -y
+   apt upgrade -y
+   apt install curl -y
+   apt install wget -y
+   apt install git -y    
+   
+   mkdir -p /usr/share/man/man1
+   apt install openjdk-11-jre -y
+   
+   apt install -y python3-pip
+   ln -s /usr/bin/python3 /usr/bin/python
+   ln -s /usr/bin/pip3 /usr/bin/pip
+
+   pip3 install scikit-learn
+   pip3 install tsfresh
+   pip3 install liac-arff
+
+   echo "Successfully installed all features"
